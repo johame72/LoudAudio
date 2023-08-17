@@ -1,0 +1,27 @@
+{
+  "name": "loudaudio",
+  "version": "1.0.0",
+  "description": "Audio Streaming App for DISCORD",
+  "main": "20230817T073626_bot.js",
+  "scripts": {
+    "test": "yoyoyo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "C:/Users/johnn/AppData/Local/Discord/LoudAudio/.git/"
+  },
+  "keywords": [
+    "audio",
+    "stream",
+    "music",
+    "app",
+    "discord",
+    "bot"
+  ],
+  "author": "John Merkel",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/voice": "^0.16.0",
+    "discord.js": "^14.13.0"
+  }
+}
