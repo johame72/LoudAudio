@@ -34,12 +34,12 @@ const player = createAudioPlayer({
 const IDLE_TIMEOUT_MS = 10 * 60 * 1000;
 let idleTimeout;
 
-const clearIdleTimeout = () => {
-  if (idleTimeout) {
-    clearTimeout(idleTimeout);
-    idleTimeout = null;
-  }
-};
+//const clearIdleTimeout = () => {
+//  if (idleTimeout) {
+//    clearTimeout(idleTimeout);
+//    idleTimeout = null;
+//  }
+//};
 
 player.on('error', error => {
   console.error(`Error in audio player: ${error.stack}`);
@@ -49,15 +49,15 @@ client.once('ready', () => {
   console.log('Bot is online and ready!');
 });
 
-player.on(AudioPlayerStatus.Idle, (oldState, newState) => {
-  console.log('Audio player is idle. Setting idle timeout.');
-  clearIdleTimeout();
-  idleTimeout = setTimeout(() => {
-    console.log('Idle timeout reached. Destroying connection.');
-    newState.connection?.destroy();
-    currentConnection = null;
-  }, IDLE_TIMEOUT_MS);
-});
+//player.on(AudioPlayerStatus.Idle, (oldState, newState) => {
+//  console.log('Audio player is idle. Setting idle timeout.');
+//  clearIdleTimeout();
+//  idleTimeout = setTimeout(() => {
+//    console.log('Idle timeout reached. Destroying connection.');
+//    newState.connection?.destroy();
+//    currentConnection = null;
+//  }, IDLE_TIMEOUT_MS);
+//});
 
 const setupConnectionListeners = (connection) => {
   if (currentConnection) {
@@ -88,7 +88,6 @@ const setupConnectionListeners = (connection) => {
 };
 
 client.on('messageCreate', async message => {
-    clearIdleTimeout();
     console.log(`Received message from ${message.author.tag}: "${message.content}"`);
     
     if (message.author.bot) return;
