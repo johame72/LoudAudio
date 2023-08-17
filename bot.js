@@ -132,7 +132,12 @@ client.on('messageCreate', async message => {
                 message.channel.send('There was an error playing the YouTube video.');
             });
 
-            const resource = createAudioResource(stream, { inputType: StreamType.Arbitrary });
+            const resource = createAudioResource(stream, { 
+              inputType: StreamType.Arbitrary,
+              inlineVolume: true,
+              ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
+          });
+          
             player.play(resource);
             currentConnection?.subscribe(player);
         } catch (err) {
@@ -179,8 +184,11 @@ client.on('messageCreate', async message => {
     });
     setupConnectionListeners(connection);
     const resource = createAudioResource(currentStation, {
-      inputType: StreamType.Arbitrary
-    });
+      inputType: StreamType.Arbitrary,
+      inlineVolume: true,
+      ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
+  });
+  
     player.play(resource);
     connection.subscribe(player);
     try {
@@ -200,8 +208,11 @@ client.on('messageCreate', async message => {
       if (player.state.status !== AudioPlayerStatus.Idle) {
         player.stop();
         const resource = createAudioResource(currentStation, {
-          inputType: StreamType.Arbitrary
-        });
+          inputType: StreamType.Arbitrary,
+          inlineVolume: true,
+          ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
+      });
+      
         player.play(resource);
         if (message.guild && message.guild.me && message.guild.me.voice.connection) {
           message.guild.me.voice.connection.subscribe(player);
