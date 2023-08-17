@@ -1,5 +1,3 @@
-process.env.FFMPEG_PATH = "C:\\Users\\johnn\\AppData\\Local\\Discord\\LoudAudio\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe";
-
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, entersState, StreamType, AudioPlayerStatus, VoiceConnectionStatus, NoSubscriberBehavior } = require('@discordjs/voice');
