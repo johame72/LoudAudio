@@ -132,7 +132,7 @@ client.on('messageCreate', async message => {
             });
 
             const resource = createAudioResource(stream, { 
-              inputType: StreamType.Arbitrary,
+              inputType: StreamType.OggOpus,
               inlineVolume: true,
               ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
           });
@@ -183,7 +183,7 @@ client.on('messageCreate', async message => {
     });
     setupConnectionListeners(connection);
     const resource = createAudioResource(currentStation, {
-      inputType: StreamType.Arbitrary,
+      inputType: StreamType.OggOpus,
       inlineVolume: true,
       ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
   });
@@ -207,7 +207,7 @@ client.on('messageCreate', async message => {
       if (player.state.status !== AudioPlayerStatus.Idle) {
         player.stop();
         const resource = createAudioResource(currentStation, {
-          inputType: StreamType.Arbitrary,
+          inputType: StreamType.OggOpus,
           inlineVolume: true,
           ffmpegExecutable: '/app/vendor/ffmpeg/ffmpeg'
       });
